@@ -11,10 +11,6 @@ The intended audience is engineers who need to parse or process VHD images in so
 - [libvhdi documentation](https://github.com/libyal/libvhdi/tree/master/documentation)
 - [Forensic Focus article](https://articles.forensicfocus.com/2015/11/11/virtual-hard-disk-image-format-a-forensic-overview/)
 
-## License
-
-Free for all public and private use.
-
 ## Introduction
 
 This paper describes the different hard disk formats supported by Microsoft Virtual PC and Virtual Server products. It does not explain how hard disks interface with the virtual machine, nor does it provide information about ATA (AT Attachment) hard disks or Small Computer System Interface (SCSI) hard disks. This paper focuses on how to store the data in files on the host file system.
