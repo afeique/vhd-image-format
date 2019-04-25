@@ -2,9 +2,9 @@
 
 ## Summary
 
-The Virtual Hard Disk (VHD) image format is primarily used in older Microsoft virtualization products. This article mirrors the [official specification][1] in markdown format. Its intended audience is engineers who need to parse or process VHD images in some capacity.
+The Virtual Hard Disk (VHD) image format is primarily used in older Microsoft virtualization products. This article is a markdown mirror of the [official specification](http://download.microsoft.com/download/f/f/e/ffef50a5-07dd-4cf8-aaa3-442c0673a029/Virtual%20Hard%20Disk%20Format%20Spec_10_18_06.doc).
 
-[1]: (http://download.microsoft.com/download/f/f/e/ffef50a5-07dd-4cf8-aaa3-442c0673a029/Virtual%20Hard%20Disk%20Format%20Spec_10_18_06.doc)
+The intended audience is engineers who need to parse or process VHD images in some capacity.
 
 **Additional Resources**
 
