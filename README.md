@@ -166,7 +166,7 @@ The format of the hard disk footer is listed in the following table.
   | Windows          | `Wi2k`     | `0x0x5769326B` |
   | Macintosh        | `Mac\x20`  | `0x4D61632020` |
 
-  **Note:** there is a space `0x20` at end of `Mac`.
+  **Note:** there is a space `0x20` at end of `Mac`
 
 - **Original Size**
 
