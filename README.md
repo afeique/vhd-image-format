@@ -4,17 +4,12 @@
 
 The Virtual Hard Disk (VHD) image format is primarily used in older Microsoft virtualization products. This article mirrors the [official specification] in markdown format. Its intended audience is engineers who need to parse or process VHD images in some capacity.
 
-[official specification] (http://download.microsoft.com/download/f/f/e/ffef50a5-07dd-4cf8-aaa3-442c0673a029/Virtual%20Hard%20Disk%20Format%20Spec_10_18_06.doc)
+[official specification]: (http://download.microsoft.com/download/f/f/e/ffef50a5-07dd-4cf8-aaa3-442c0673a029/Virtual%20Hard%20Disk%20Format%20Spec_10_18_06.doc)
 
 **Additional Resources**
 
-- [Forensic Focus article]: https://articles.forensicfocus.com/2015/11/11/virtual-hard-disk-image-format-a-forensic-overview/
-
-- [libvhdi documentation]: https://github.com/libyal/libvhdi/tree/master/documentation
-
-## Document Information
-
-
+- [libvhdi documentation](https://github.com/libyal/libvhdi/tree/master/documentation)
+- [Forensic Focus article](https://articles.forensicfocus.com/2015/11/11/virtual-hard-disk-image-format-a-forensic-overview/)
 
 ## License
 
