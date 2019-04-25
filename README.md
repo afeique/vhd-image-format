@@ -149,7 +149,7 @@ The format of the hard disk footer is listed in the following table.
   | Virtual Server            | `vs\x20\x20` | `0x76732020`  |
   | Windows (Disk Management) | `win\x20`    | `0x77696e20`  |
 
-  **Note:** there are padding characters at the ends of these strings, e.g. space(s) `0x20` or `nul` (`0x0`)
+  **Note:** there are padding characters at the ends of these strings, e.g. space(s) `0x20` or `nul` `0x0`
 
 - **Creator Version**
 
@@ -329,7 +329,7 @@ The following provides detailed definitions of the dynamic disk header fields.
   | `Mac\x20`  | `0x4D616320`  | (Mac OS alias stored as a blob)                              |
   | `MacX`     | `0x4D616358`  | A file URL with UTF-8 encoding conforming to RFC 2396.       |
 
-  **Note:** there is a space `0x20` at end of `Mac`.
+  **Note:** there is a space `0x20` at end of `Mac`
 
   - **Platform Data Space.** This field stores the number of 512-byte sectors needed to store the parent hard disk locator.
   - **Platform Data Length.** This field stores the actual length of the parent hard disk locator in bytes.
