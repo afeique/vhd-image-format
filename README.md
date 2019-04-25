@@ -68,8 +68,6 @@ Every time a data block is added, the hard disk footer must be moved to the end 
 
 A differencing hard disk image represents the current state of the virtual hard disk as a set of modified blocks in comparison to a parent image. This type of hard disk image is not independent; it depends on another hard disk image to be fully functional. The parent hard disk image can be any of the mentioned hard disk image types, including another differencing hard disk image.
 
-For details about this format, see “Implementing a Differencing Hard Disk” later in this paper.
-
 ## Hard Disk Footer Format
 
 All hard disk images share a basic footer format. Each hard disk type extends this format according to its needs.
@@ -117,13 +115,13 @@ The format of the hard disk footer is listed in the following table.
 
   - **No features enabled.** The hard disk image has no special features enabled in it.
   - **Temporary.** This bit is set if the current disk is a temporary disk. A temporary disk designation indicates to an application that this disk is a candidate for deletion on shutdown.
-  - **Reserved.** This bit must always be set to 1.
+  - **Reserved.** This bit must always be set to `1`.
 
-  All other bits are also reserved and should be set to 0.
+  All other bits are also reserved and should be set to `0`.
 
 - **File Format Version**
 
-  This field is divided into a major/minor version and matches the version of the specification used in creating the file. The most-significant two bytes are for the major version. The least-significant two bytes are the minor version. This must match the file format specification. For the current specification, this field must be initialized to 0x00010000.
+  This field is divided into a major/minor version and matches the version of the specification used in creating the file. The most-significant two bytes are for the major version. The least-significant two bytes are the minor version. This must match the file format specification. For the current specification, this field must be initialized to `0x00010000`.
 
   The major version will be incremented only when the file format is modified in such a way that it is no longer compatible with older versions of the file format.
 
