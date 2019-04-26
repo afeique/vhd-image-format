@@ -13,9 +13,11 @@ The intended audience is engineers who need to parse or process VHD images in so
 
 ## Introduction
 
-This paper describes the different hard disk formats supported by Microsoft Virtual PC and Virtual Server products. It does not explain how hard disks interface with the virtual machine, nor does it provide information about ATA (AT Attachment) hard disks or Small Computer System Interface (SCSI) hard disks. This paper focuses on how to store the data in files on the host file system.
+The reader should be familiar with virtual machine technology and terminology, such as the terms *guest* and *host* as used in the context of virtual machine architectures. 
 
-The reader should be familiar with virtual machine technology and terminology, such as the terms *guest* and *host* as used in the context of virtual machine architectures. The user should also be familiar with hard disk technologies and should understand how data is accessed and laid out on the physical medium. The following terminology is used in this paper:
+The user should also be familiar with hard disk technologies and should understand how data is accessed and laid out on classical magnetic platter drives. A brief review of this technology is provided.
+
+The following terminology is used in this paper:
 
 - **System**
 
@@ -34,6 +36,26 @@ The reader should be familiar with virtual machine technology and terminology, s
   Sector length is always 512 bytes.
 
 All values in the file format, unless otherwise specified, are stored in network byte order (big endian). Also, unless otherwise specified, all reserved values should be set to zero.
+
+### Review of Magnetic Platter Drives
+
+These non-volatile storage media predate SSD and high-density NAND-FLASH storage media and rely on rotational (spinning) magnetic platters. The internal drive is comprised of multiple layers of platters whose surfaces provide the magnetic medium upon which data is stored. Read-write heads are used to manipulate the magnetic medium for data storage and retrieval. Because each platter has two surfaces, there are two heads per platter.
+
+The surface of each platter is subdivided into circular tracks or "cylinders". Each of these tracks is then further subdivided into sectors. Each of these sectors forms the minimum block of data (typically 512-bytes) which a rotaional drive deals with.
+
+Taken as a whole, this **C**ylinder-**H**ead-**S**ector system can be used to address physical sectors   on a hard disk.
+
+- **Cylinders or Tracks**
+
+  Circular subdivisions on each platter surface represent cylinders.
+
+- **Heads**
+
+  A count of how many platter surfaces there are, can be used to reference a particular platter surface.
+
+- **Sectors**
+
+  The number of sectors in each cylindrical track, can be used to reference a particular sector on a given cylinder and head.
 
 ## Types of Disk Images
 
@@ -259,7 +281,7 @@ The following provides detailed definitions of the dynamic disk header fields.
 
 - **Data Offset**
 
-  This field contains the absolute byte offset to the next structure in the hard disk image. It is currently unused by existing formats and should be set to 0xFFFFFFFF.
+  This field contains the absolute byte offset to the next structure in the hard disk image. It is currently unused by existing formats and should be set to `0xFFFFFFFF`.
 
 - **Table Offset**
 
@@ -267,7 +289,7 @@ The following provides detailed definitions of the dynamic disk header fields.
 
 - **Header Version**
 
-  This field stores the version of the dynamic disk header. The field is divided into Major/Minor version. The least-significant two bytes represent the minor version, and the most-significant two bytes represent the major version. This must match with the file format specification. For this specification, this field must be initialized to 0x00010000.
+  This field stores the version of the dynamic disk header. The field is divided into Major/Minor version. The least-significant two bytes represent the minor version, and the most-significant two bytes represent the major version. This must match with the file format specification. For this specification, this field must be initialized to `0x00010000`.
 
   The major version will be incremented only when the header format is modified in such a way that it is no longer compatible with older versions of the product.
 
@@ -277,7 +299,7 @@ The following provides detailed definitions of the dynamic disk header fields.
 
 - **Block Size**
 
-  A block is a unit of expansion for dynamic and differencing hard disks. It is stored in bytes. This size does not include the size of the block bitmap. It is only the size of the data section of the block. The sectors per block must always be a power of two. The default value is 0x00200000 (indicating a block size of 2 MB).
+  A block is a unit of expansion for dynamic and differencing hard disks. It is stored in bytes. This size does not include the size of the block bitmap. It is only the size of the data section of the block. The sectors per block must always be a power of two. The default value is `0x00200000` (indicating a block size of 2 MB).
 
 - **Checksum**
 
